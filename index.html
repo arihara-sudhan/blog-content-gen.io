@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Of Ari</title>
+	<style>
+		body {
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		String.prototype.count=function(c) { 
+		  var result = 0, i = 0;
+		  for(i;i<this.length;i++)if(this[i]==c)result++;
+		  return result;
+		};
+
+		function countVerifyGen(ordg,nta,nim,nvi,nau,nem){
+			if(ordg.count('t')!==nta)
+				document.write("order matched not : nta")
+			else if(ordg.count('i')!==nim)
+				document.write("order matched not : nim")
+			else if(ordg.count('v')!==nvi)
+				document.write("order matched not : nvi")
+			else if(ordg.count('a')!==nta)
+				document.write("order matched not : nau")
+			else if(ordg.count('e')!==nem)
+				document.write("order matched not : nem")
+			else {
+				var ovstr = '';
+				for(let g=0;g<ordg.length;g++){
+					if(ordg[g]==='a'){
+						let k = prompt("Link for audio")
+						ovstr+=`<center><audio src=${k}></center>`
+					}
+					else if(ordg[g]==='t'){
+						let k = prompt("Text")
+						ovstr+=`<span>${k}</span><br>`
+					}
+					else if(ordg[g]==='v'){
+						let k = prompt("Link for Video")
+						ovstr+=`<center><video src=${k} width='80%'></video></center>`
+					}
+					else if(ordg[g]==='i'){
+						let k = prompt("Link for Image")
+						ovstr+=`<center><img src=${k} width='80%'></center>`
+					}
+					else if(ordg[g]==='e'){
+						let k = prompt("Link To Embed")
+						ovstr+=`<center>${k}<center>`
+					}
+				}
+				ovstr = '<span>'+ovstr+'</span>'
+				console.log(ovstr);
+			}
+		}
+		let nta = parseInt(prompt("How many text-areas ?"))
+		let nim = parseInt(prompt("How many images ?"))
+		let nvi = parseInt(prompt("How many videos ?"))
+		let nau = parseInt(prompt("How many audios ?"))
+		let nem = parseInt(prompt("How many youtube videos to embed ?"))
+		let ord = prompt("Order : ") // tivae // ttiivaieiat
+		countVerifyGen(ord,nta,nim,nim,nvi,nau,nem);
+	</script>
+</body>
+</html>
